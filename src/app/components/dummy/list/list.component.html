@@ -1,0 +1,22 @@
+<div class="card-columns mt-3">
+  <div
+    class="card border-info mb-3"
+    style="max-width: 18rem;"
+    *ngFor="let item of items"
+  >
+    <div class="card-header">Id - {{ item.id }}</div>
+    <div class="card-body text-info">
+      <div class="card-body">
+        <app-img
+          [src]="item.url"
+          [width]="item.width"
+          [height]="item.height"
+          alt="..."
+        ></app-img>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{footer}} </small>
+      </div>
+    </div>
+  </div>
+</div>
