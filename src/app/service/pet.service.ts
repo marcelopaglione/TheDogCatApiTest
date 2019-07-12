@@ -9,7 +9,7 @@ import { catchError, delay, retry } from 'rxjs/operators';
 export class PetService {
   constructor(private http: HttpClient) {}
 
-  api;
+  api: string;
   delayTime = 100;
 
   public getPets(page = 1, limit = 10): Observable<HttpResponse<any>> {

@@ -40,8 +40,7 @@ describe('CatsComponent', () => {
       declarations: [ CatsComponent, ButtonComponent, ListComponent, ImgComponent ],
       imports: [ HttpClientModule ],
       providers: [{provide: PetService, useValue: service}]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -67,14 +66,10 @@ describe('CatsComponent', () => {
     const button = debugElement.nativeElement.querySelector('button');
     button.click();
     expect(component.listar).toHaveBeenCalledTimes(1);
-
     expect(component.cats).toBeDefined();
     expect(component.cats.length).toBe(1);
 
     const img = debugElement.query(By.css('img'));
-
-    // console.log('nativeElement', debugElement.nativeElement.querySelector('img'));
-    // console.log('nativeQuery', debugElement.query(By.css('img')));
 
     expect(img).toBeDefined();
     console.log('img cats', img);

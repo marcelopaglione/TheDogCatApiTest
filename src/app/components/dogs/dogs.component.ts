@@ -11,7 +11,7 @@ export class DogsComponent implements OnInit {
   title = 'Dogs';
   dogs: string[] = [];
 
-  constructor(private service: PetService) { }
+  constructor(public service: PetService) { }
 
   ngOnInit() {
     this.service.api = 'dog';

@@ -1,7 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { PetService } from 'src/app/service/pet.service';
@@ -11,6 +10,7 @@ import { ListComponent } from '../dummy/list/list.component';
 import { DogsComponent } from './dogs.component';
 
 class DogFakeService {
+
   getPets() {
     console.log('getPets fake');
     return of({
@@ -73,25 +73,5 @@ describe('DogsComponent', () => {
     expect(buttonSpy).toHaveBeenCalledTimes(1);
   }));
 
-  it('should list cards after button click', fakeAsync(() => {
-    spyOn(component, 'listar').and.callThrough();
-    const button = debugElement.nativeElement.querySelector('button');
-    button.click();
 
-
-    expect(component.listar).toHaveBeenCalled();
-    expect(component.dogs).toBeDefined();
-    expect(component.dogs.length).toBe(1);
-
-    const img = debugElement.query(By.css('.card-img-top'));
-    console.log(debugElement.nativeElement);
-    console.log('img', img);
-
-    expect(img).toBeDefined();
-    expect(img.properties.height).toBe(720);
-    expect(img.properties.width).toBe(1081);
-    expect(img.properties.src).toBe(
-      'https://cdn2.thedogapi.com/images/r1Ylge5Vm_390x256.jpg'
-    );
-  }));
 });
